@@ -1,0 +1,155 @@
+.galleryWrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.galleryWrap .galleryItem {
+  position: relative;
+}
+
+.galleryWrap .galleryItem img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  /* Center the images in each grid cell */
+  transition: transform 0.3s;
+  /* Add a smooth transform effect on hover */
+}
+
+.galleryWrap .galleryItem img:hover {
+  transform: scale(1.02);
+}
+
+/* Position the checkbox in the top left corner of the image */
+.selectionCheckbox {
+  position: absolute;
+  top: 10px;
+  /* Adjust this value for desired positioning */
+  left: 10px;
+  /* Adjust this value for desired positioning */
+  z-index: 1;
+}
+
+/* Handle the first image (2x2 grid) */
+.galleryWrap .galleryItem.first-image img {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Handle the other images (5x1 grid) */
+.galleryWrap .galleryItem:not(.first-image) img {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.imageHoverEffect:hover {
+  transform: scale(1.02);
+}
+
+
+
+.btnDelete {
+  background-color: #f74b4bc7;
+  /* Choose a suitable background color */
+  color: #fff;
+  /* Text color */
+  padding: 8px 12px;
+  /* Adjust padding to your preference */
+  border: none;
+  /* Remove the border */
+  border-radius: 4px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Display a pointer cursor on hover */
+}
+
+.btnDelete:hover {
+  background-color: #ff0000e6;
+  /* Change the background color on hover */
+}
+
+
+
+
+
+
+.galleryWrap .galleryItem.upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #000;
+  /* You can remove the previous positioning properties */
+}
+
+
+
+.sliderWrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sliderWrap .btnClose,
+.sliderWrap .btnPrev,
+.sliderWrap .btnNext {
+  position: fixed;
+  cursor: pointer;
+  opacity: 0.6;
+  color: #fff;
+  z-index: 9999;
+}
+
+.btnNext:hover,
+.btnPrev:hover,
+.btnClose:hover {
+  opacity: 1;
+}
+
+.sliderWrap .btnClose {
+  top: 40px;
+  right: 40px;
+}
+
+.sliderWrap .btnPrev {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px;
+}
+
+.sliderWrap .btnNext {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40px;
+}
+
+.fullScreenImage {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullScreenImage img {
+  max-width: 100%;
+  max-height: 100%;
+  pointer-events: none;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
